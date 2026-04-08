@@ -71,7 +71,6 @@ function startGame() {
     let targetY = 10;
 
     updateGameArea();
-    gameCanStart = true;
     console.log("STARTING");
 }
 
