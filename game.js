@@ -1,8 +1,10 @@
 import Color from "https://colorjs.io/dist/color.js";
 
 
+const pi = Math.PI;
+
 var startingHue = Math.floor(Math.random() * 360) + 1;
-// var ctx;
+var ctx;
 
 let globalHueChange = 0;
 let time = 0;
@@ -23,6 +25,35 @@ var gameArea = {
         this.context.clearRect(0, 0, this.canvas.width, this. canvas. height);
     }
 }
+
+
+class section {
+    constructor(radius, startAngle, endAngle, hue) {
+        //Variables
+        this.radius = radius;
+        this.startAngle = startAngle;
+        this.endAngle = endAngle;
+
+        //Color
+        this.lightness = 0.8;
+        this.chroma = 0.09;
+        this.hue = hue;
+        this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
+        
+
+        this.update = function() {
+            //Update color
+            this.hue = ( (this.hue) % 360 ) - 0.25 - globalHueChange;
+            this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
+
+            ctx = gameArea.context;
+            ctx.fillStyle = this.color;
+        }
+
+    }
+}
+
+
 
 function updateGameArea() {
     gameArea.clear();
@@ -45,26 +76,6 @@ function startGame() {
 }
 
 startGame();
-
-
-const circle = document.getElementById('myCanvas');
-const ctx = canvas.getContext('2d');
-
-const x = canvas.width / 2;
-const y = canvas.height / 2;
-const radius = 50;
-
-ctx.beginPath();
-ctx.arc(x, y, radius, 0, 2 * Math.PI); // Create the circle path
-ctx.fillStyle = 'green';
-ctx.fill();                            // Fill with color
-ctx.lineWidth = 2;
-ctx.strokeStyle = 'black';
-ctx.stroke();  
-
-
-
-
 
 
 const startButton = document.createElement('button');
