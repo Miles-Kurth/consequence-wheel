@@ -1,2 +1,2 @@
-# consequence-wheel
-For the English punishments
+# Consequence Wheel
+For the crime of not reading enough.
