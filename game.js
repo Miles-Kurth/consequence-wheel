@@ -2,16 +2,12 @@ import Color from "https://colorjs.io/dist/color.js";
 
 
 var startingHue = Math.floor(Math.random() * 360) + 1;
-var ctx;
+// var ctx;
 
 let globalHueChange = 0;
 let time = 0;
 
 
-
-const startButton = document.createElement('button');
-startButton.textContent = "SPIN";
-document.body.appendChild(startButton);
 
 var gameArea = {
     canvas : document.createElement("canvas"),
@@ -43,27 +39,29 @@ function startGame() {
     let targetX = 10;
     let targetY = 10;
 
-    //Event listeners
-    gameArea.canvas.addEventListener("click", function(e) {
-        if (gameCanStart){
-            const rect = gameArea.canvas.getBoundingClientRect();
-            const mouseX = e.clientX - rect.left;
-            const mouseY = e.clientY - rect.top;
-            
-        }
-    });
-    gameArea.canvas.addEventListener("mousemove", function(e) {
-        const rect = gameArea.canvas.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
-
-        let foundHover = false;
-
-    });
-
     updateGameArea();
     gameCanStart = true;
     console.log("STARTING");
 }
 
 startGame();
+
+const startButton = document.createElement('button');
+startButton.textContent = "SPIN";
+document.body.appendChild(startButton);
+
+
+const circle = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+
+const x = canvas.width / 2;
+const y = canvas.height / 2;
+const radius = 50;
+
+ctx.beginPath();
+ctx.arc(x, y, radius, 0, 2 * Math.PI); // Create the circle path
+ctx.fillStyle = 'green';
+ctx.fill();                            // Fill with color
+ctx.lineWidth = 2;
+ctx.strokeStyle = 'black';
+ctx.stroke();  
