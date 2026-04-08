@@ -46,10 +46,6 @@ function startGame() {
 
 startGame();
 
-const startButton = document.createElement('button');
-startButton.textContent = "SPIN";
-document.body.appendChild(startButton);
-
 
 const circle = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
@@ -65,3 +61,12 @@ ctx.fill();                            // Fill with color
 ctx.lineWidth = 2;
 ctx.strokeStyle = 'black';
 ctx.stroke();  
+
+
+
+
+
+
+const startButton = document.createElement('button');
+startButton.textContent = "SPIN";
+document.body.appendChild(startButton);
