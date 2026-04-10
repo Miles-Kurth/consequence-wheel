@@ -88,7 +88,7 @@ var gameArea = {
         ctx.moveTo(CENTERX, CENTERY); //left line
         ctx.arc(CENTERX, CENTERY, RADIUS, this.startAngle, this.endAngle); //curved part
         ctx.moveTo(CENTERX, CENTERY); //right line
-        ctx.strokeStyle = "black";
+        // ctx.strokeStyle = "black";
         ctx.stroke(); //draw border
         ctx.fillStyle = this.color;
         ctx.fill(); //draw fill
