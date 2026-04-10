@@ -26,6 +26,8 @@ var gameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
 
+        this.context.fillStyle() = startingHue;
+
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this. canvas. height);
@@ -34,7 +36,7 @@ var gameArea = {
     drawCircle : function() {
         this.context.beginPath();
         this.context.arc(CENTERX, CENTERY, RADIUS, 0, (2*pi)/options.length);
-        this.context.fillStyle()
+        this.context.fillStyle() += globalHueChange;
         this.context.stroke();
     }
 }
