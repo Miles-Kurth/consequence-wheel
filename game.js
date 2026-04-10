@@ -3,8 +3,8 @@ import Color from "https://colorjs.io/dist/color.js";
 
 const pi = Math.PI;
 
-const CANVASWIDTH = 600;
-const CANVASHEIGHT = 600;
+const CANVASWIDTH = 580;
+const CANVASHEIGHT = 580;
 
 const CENTERX = CANVASWIDTH / 2;
 const CENTERY = CANVASHEIGHT / 2;
@@ -19,7 +19,15 @@ let time = 0;
 
 let golbalZeroAngle = 0;
 
-let options = ["one","two","three","four","five","six"];
+let options = ["Give everyone in the group money",
+               "Sit in the corner of shame",
+               "Give everyone in the group candy",
+               "Powerwash your chromebook",
+               "Get somewhere blindfolded",
+               "Read book aloud",
+               "Do 10 push-ups",
+               "Wear your sweater backwards",
+               "Pirate a game in 5 minutes"];
 
 
 
