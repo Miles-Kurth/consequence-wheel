@@ -2,6 +2,7 @@ import Color from "https://colorjs.io/dist/color.js";
 
 
 const pi = Math.PI;
+
 const CENTERX = 250;
 const CENTERY = 250;
 const RADIUS = 120;
@@ -29,7 +30,7 @@ var gameArea = {
         //Color
         this.lightness = 0.8;
         this.chroma = 0.09;
-        this.hue = hue;
+        this.hue = startingHue;
         this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
 
     },
