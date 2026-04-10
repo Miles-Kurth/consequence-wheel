@@ -40,7 +40,7 @@ let sections = [ //startAngle, endAngle, hue
 var startingHue = Math.floor(Math.random() * 360) + 1;
 
 const hueChangePerSection = 360 / NUMSECTIONS;
-const angleChangePerSection = (2*pi) / NUMSECTIONS;
+const angleChangePerSection = (2*pi) / NUMSECTIONS * 2;
 
 let globalHueChange = 0;
 let time = 0;
@@ -71,7 +71,7 @@ var gameArea = {
         this.context.clearRect(0, 0, this.canvas.width, this. canvas. height);
     },
 
-    drawCircle : function(startAngle, endAngle, hue, number) { //<--work here (probs error)
+    drawCircle : function(startAngle, endAngle, hue, number) {
         this.startAngle = startAngle;
         this.endAngle = endAngle;
         this.hue = hue;
@@ -167,10 +167,6 @@ function startGame() {
 
 startGame();
 
-
-const startButton = document.createElement('button');
-startButton.textContent = "SPIN";
-document.body.appendChild(startButton);
 
 
 
