@@ -56,7 +56,7 @@ var gameArea = {
     start : function() {
         this.canvas.width = CANVASWIDTH;
         this.canvas.height = CANVASHEIGHT;
-        this.context = this.canvas.getContext("2d");
+        const ctx = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
 
@@ -70,7 +70,7 @@ var gameArea = {
 
     },
     clear : function() {
-        this.context.clearRect(0, 0, this.canvas.width, this. canvas. height);
+        ctx.clearRect(0, 0, this.canvas.width, this. canvas. height);
     },
 
     drawCircle : function(startAngle, endAngle, hue, number) {
@@ -84,13 +84,15 @@ var gameArea = {
         
 
         //Draw
-        this.context.beginPath();
-        this.context.moveTo(CENTERX, CENTERY); //left line
-        this.context.arc(CENTERX, CENTERY, RADIUS, this.startAngle, this.endAngle); //curved part
-        this.context.moveTo(CENTERX, CENTERY); //right line
-        this.context.stroke(); //draw border
-        this.context.fillStyle = this.color;
-        this.context.fill(); //draw fill
+        ctx.beginPath();
+        ctx.moveTo(CENTERX, CENTERY); //left line
+        ctx.arc(CENTERX, CENTERY, RADIUS, this.startAngle, this.endAngle); //curved part
+        ctx.moveTo(CENTERX, CENTERY); //right line
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+        ctx.stroke(); //draw border
+        ctx.fillStyle = this.color;
+        ctx.fill(); //draw fill
 
         //Update variables
         this.hue = ( (this.hue) % 360 ) - 0.25 - globalHueChange;
