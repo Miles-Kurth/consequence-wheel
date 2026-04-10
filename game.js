@@ -11,27 +11,41 @@ const CENTERY = CANVASHEIGHT / 2;
 const RADIUS = CENTERX - 30;
 
 
+
+
+const options = ["Give everyone in the group money",
+                 "Sit in the corner of shame",
+                 "Give everyone in the group candy",
+                 "Powerwash your chromebook",
+                 "Get somewhere blindfolded",
+                 "Read book aloud",
+                 "Do 10 push-ups",
+                 "Wear your sweater backwards",
+                 "Pirate a game in 5 minutes"
+];
+const NUMSECTIONS = options.length;
+
+let sections = [ //startAngle, endAngle, hue
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+];
+
 var startingHue = Math.floor(Math.random() * 360) + 1;
-var ctx;
+
+const hueChangePerSection = 360 / NUMSECTIONS;
+const angleChangePerSection = (2*pi) / NUMSECTIONS;
 
 let globalHueChange = 0;
 let time = 0;
 
 let golbalZeroAngle = 0;
-
-let options = ["Give everyone in the group money",
-               "Sit in the corner of shame",
-               "Give everyone in the group candy",
-               "Powerwash your chromebook",
-               "Get somewhere blindfolded",
-               "Read book aloud",
-               "Do 10 push-ups",
-               "Wear your sweater backwards",
-               "Pirate a game in 5 minutes"];
-
-let sections = [
-    []
-]
 
 
 
@@ -57,13 +71,15 @@ var gameArea = {
         this.context.clearRect(0, 0, this.canvas.width, this. canvas. height);
     },
 
-    drawCircle : function(sectionId, hue, number) { //<--work here (probs error)
+    drawCircle : function(startAngle, endAngle, hue, number) { //<--work here (probs error)
+        this.startAngle = startAngle;
+        this.endAngle = endAngle;
+        this.hue = hue;
+        this.number = number;
+
         //Color
-        this.hue = ( (this.hue) % 360 ) - 0.25 - globalHueChange;
         this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
         
-        this.startAngle = golbalZeroAngle;
-        this.endAngle = this.startAngle + (2*pi)/options.length;
 
         //Draw
         this.context.beginPath();
@@ -72,6 +88,10 @@ var gameArea = {
         this.context.stroke();
         this.context.fillStyle = this.color;
         this.context.fill();
+
+        //Update variables
+        this.hue = ( (this.hue) % 360 ) - 0.25 - globalHueChange;
+        sections[number][2] = this.hue;
     }
 }
 
@@ -111,7 +131,8 @@ class Section {
 
 function updateGameArea() {
     gameArea.clear();
-    gameArea.drawCircle();
+
+    drawWheel();
     updateGlobalHue();
     updateGlobalAngle();
 }
@@ -122,16 +143,23 @@ function updateGlobalHue() {
 }
 
 function updateGlobalAngle() {
-    golbalZeroAngle += 0.01;
+    golbalZeroAngle += 0.005;
     golbalZeroAngle = (golbalZeroAngle % (2*pi));
+}
+
+function drawWheel() {
+    for (let i = 0; i < NUMSECTIONS; i++){
+        gameArea.drawCircle(sections[i][0], sections[i][1], sections[i][2], i);
+    }
 }
 
 function startGame() {
     gameArea.start();
-    let targetX = 10;
-    let targetY = 10;
-
-    // const wheel1 = new Section(10, 0, 1*pi, startingHue);
+    for (let i = 0; i < NUMSECTIONS; i++){ //each row
+        sections[i][0] = golbalZeroAngle + (angleChangePerSection * i);
+        sections[i][1] = sections[i][0] + angleChangePerSection;
+        sections[i][2] = startingHue + (hueChangePerSection * i);
+    }
 
     updateGameArea();
     console.log("STARTING");
@@ -146,9 +174,3 @@ document.body.appendChild(startButton);
 
 
 
-// const canvas = document.getElementById("myCanvas");
-// const ctx2 = gameArea.getContext("2d");
-
-// ctx2.beginPath();
-// ctx2.arc(100, 75, 50, 0, 2 * Math.PI);
-// ctx2.stroke();
