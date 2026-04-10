@@ -57,7 +57,7 @@ var gameArea = {
         this.context.clearRect(0, 0, this.canvas.width, this. canvas. height);
     },
 
-    drawCircle : function(sectionId, hue, number) {
+    drawCircle : function(sectionId, hue, number) { //<--work here (probs error)
         //Color
         this.hue = ( (this.hue) % 360 ) - 0.25 - globalHueChange;
         this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
