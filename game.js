@@ -42,6 +42,8 @@ var gameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
 
+        this.startAngle = golbalZeroAngle;
+
         //Color
         this.lightness = 0.8;
         this.chroma = 0.09;
@@ -58,10 +60,13 @@ var gameArea = {
         this.hue = ( (this.hue) % 360 ) - 0.25 - globalHueChange;
         this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
         
+        this.startAngle = golbalZeroAngle;
+        this.endAngle = this.startAngle + (2*pi)/options.length;
+
         //Draw
         this.context.beginPath();
         this.context.moveTo(CENTERX, CENTERY);
-        this.context.arc(CENTERX, CENTERY, RADIUS, 0, (2*pi)/options.length);
+        this.context.arc(CENTERX, CENTERY, RADIUS, this.startAngle, this.endAngle);
         this.context.stroke();
         this.context.fillStyle = this.color;
         this.context.fill();
