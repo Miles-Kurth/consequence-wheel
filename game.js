@@ -3,12 +3,12 @@ import Color from "https://colorjs.io/dist/color.js";
 
 const pi = Math.PI;
 
-const CANVASWIDTH = 400;
-const CANVASHEIGHT = 400;
+const CANVASWIDTH = 600;
+const CANVASHEIGHT = 600;
 
-const CENTERX = CANVASWIDTH/2;
-const CENTERY = CANVASHEIGHT/2;
-const RADIUS = 180;
+const CENTERX = CANVASWIDTH / 2;
+const CENTERY = CANVASHEIGHT / 2;
+const RADIUS = CENTERX - 30;
 
 
 var startingHue = Math.floor(Math.random() * 360) + 1;
