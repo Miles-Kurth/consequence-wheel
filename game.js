@@ -35,7 +35,7 @@ var gameArea = {
 
     drawCircle : function() {
         this.context.beginPath();
-        this.context.moveTo(CENTERX, CENTERY)
+        this.context.moveTo(CENTERX, CENTERY);
         this.context.arc(CENTERX, CENTERY, RADIUS, 0, (2*pi)/options.length);
         this.context.stroke();
         this.context.fillStyle = "red";
