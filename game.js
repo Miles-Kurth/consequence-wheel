@@ -29,7 +29,9 @@ let options = ["Give everyone in the group money",
                "Wear your sweater backwards",
                "Pirate a game in 5 minutes"];
 
-
+let sections = [
+    []
+]
 
 
 
@@ -55,7 +57,7 @@ var gameArea = {
         this.context.clearRect(0, 0, this.canvas.width, this. canvas. height);
     },
 
-    drawCircle : function() {
+    drawCircle : function(sectionId, hue, number) {
         //Color
         this.hue = ( (this.hue) % 360 ) - 0.25 - globalHueChange;
         this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
