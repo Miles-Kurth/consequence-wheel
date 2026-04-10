@@ -20,13 +20,17 @@ let options = ["one","two","three","four","five","six"];
 var gameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 600;
+        this.canvas.width = 500;
         this.canvas.height = 500;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
 
-        // this.context.fillStyle() = startingHue;
+        //Color
+        this.lightness = 0.8;
+        this.chroma = 0.09;
+        this.hue = hue;
+        this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
 
     },
     clear : function() {
@@ -34,11 +38,16 @@ var gameArea = {
     },
 
     drawCircle : function() {
+        //Color
+        this.hue = ( (this.hue) % 360 ) - 0.25 - globalHueChange;
+        this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
+        
+        //Draw
         this.context.beginPath();
         this.context.moveTo(CENTERX, CENTERY);
         this.context.arc(CENTERX, CENTERY, RADIUS, 0, (2*pi)/options.length);
         this.context.stroke();
-        this.context.fillStyle = "red";
+        this.context.fillStyle = this.color;
         this.context.fill();
     }
 }
