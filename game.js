@@ -85,11 +85,12 @@ var gameArea = {
 
         //Draw
         this.context.beginPath();
-        this.context.moveTo(CENTERX, CENTERY);
-        this.context.arc(CENTERX, CENTERY, RADIUS, this.startAngle, this.endAngle);
-        // this.context.stroke();
+        this.context.moveTo(CENTERX, CENTERY); //left line
+        this.context.arc(CENTERX, CENTERY, RADIUS, this.startAngle, this.endAngle); //curved part
+        this.context.moveTo(CENTERX, CENTERY); //right line
+        this.context.stroke(); //draw border
         this.context.fillStyle = this.color;
-        this.context.fill();
+        this.context.fill(); //draw fill
 
         //Update variables
         this.hue = ( (this.hue) % 360 ) - 0.25 - globalHueChange;
