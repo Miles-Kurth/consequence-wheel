@@ -23,6 +23,12 @@ var gameArea = {
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this. canvas. height);
+    },
+
+    drawCircle : function() {
+        this.context.beginPath();
+        this.context.arc(100, 75, 20, 0, 2 * Math.PI);
+        this.context.stroke();
     }
 }
 
@@ -62,6 +68,7 @@ class Section {
 
 function updateGameArea() {
     gameArea.clear();
+    gameArea.drawCircle();
     updateGlobalHue();    
 }
 
@@ -91,8 +98,8 @@ document.body.appendChild(startButton);
 
 
 // const canvas = document.getElementById("myCanvas");
-const ctx2 = gameArea.getContext("2d");
+// const ctx2 = gameArea.getContext("2d");
 
-ctx2.beginPath();
-ctx2.arc(100, 75, 50, 0, 2 * Math.PI);
-ctx2.stroke();
+// ctx2.beginPath();
+// ctx2.arc(100, 75, 50, 0, 2 * Math.PI);
+// ctx2.stroke();
