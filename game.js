@@ -13,6 +13,8 @@ var ctx;
 let globalHueChange = 0;
 let time = 0;
 
+let options = ["one","two","three","four","five","six"];
+
 
 
 var gameArea = {
@@ -21,20 +23,19 @@ var gameArea = {
         this.canvas.width = 600;
         this.canvas.height = 500;
         this.context = this.canvas.getContext("2d");
-        ctx = this.context;
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
 
     },
     clear : function() {
-        ctx.clearRect(0, 0, this.canvas.width, this. canvas. height);
+        his.context.clearRect(0, 0, this.canvas.width, this. canvas. height);
     },
 
     drawCircle : function() {
-        ctx.beginPath();
-        ctx.arc(CENTERX, CENTERY, RADIUS, 0, 2 * Math.PI);
-        ctx.fillStyle()
-        ctx.stroke();
+        his.context.beginPath();
+        his.context.arc(CENTERX, CENTERY, RADIUS, 0, (2*pi)/options.length);
+        his.context.fillStyle()
+        his.context.stroke();
     }
 }
 
