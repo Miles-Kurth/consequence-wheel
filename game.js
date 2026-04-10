@@ -87,7 +87,7 @@ var gameArea = {
         this.context.beginPath();
         this.context.moveTo(CENTERX, CENTERY);
         this.context.arc(CENTERX, CENTERY, RADIUS, this.startAngle, this.endAngle);
-        this.context.stroke();
+        // this.context.stroke();
         this.context.fillStyle = this.color;
         this.context.fill();
 
