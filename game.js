@@ -4,7 +4,7 @@ import Color from "https://colorjs.io/dist/color.js";
 const pi = Math.PI;
 const CENTERX = 250;
 const CENTERY = 250;
-const RADIUS = 75;
+const RADIUS = 120;
 
 
 var startingHue = Math.floor(Math.random() * 360) + 1;
@@ -28,14 +28,14 @@ var gameArea = {
 
     },
     clear : function() {
-        his.context.clearRect(0, 0, this.canvas.width, this. canvas. height);
+        this.context.clearRect(0, 0, this.canvas.width, this. canvas. height);
     },
 
     drawCircle : function() {
-        his.context.beginPath();
-        his.context.arc(CENTERX, CENTERY, RADIUS, 0, (2*pi)/options.length);
-        his.context.fillStyle()
-        his.context.stroke();
+        this.context.beginPath();
+        this.context.arc(CENTERX, CENTERY, RADIUS, 0, (2*pi)/options.length);
+        this.context.fillStyle()
+        this.context.stroke();
     }
 }
 
