@@ -27,7 +27,7 @@ var gameArea = {
 }
 
 
-class section {
+class Section {
     constructor(radius, startAngle, endAngle, hue) {
         //Variables
         this.radius = radius;
@@ -48,6 +48,11 @@ class section {
 
             ctx = gameArea.context;
             ctx.fillStyle = this.color;
+
+            ctx.beginPath(); // Start a new path
+            ctx.arc(100, 100, this.radius, this.startAngle, this.endAngle); // Define the circle
+            ctx.strokeStyle = "blue"; // Set line color
+            ctx.stroke(); // Draw the outline
         }
 
     }
@@ -69,6 +74,8 @@ function startGame() {
     gameArea.start();
     let targetX = 10;
     let targetY = 10;
+
+    const wheel1 = new Section(10,0,1*pi,startingHue);
 
     updateGameArea();
     console.log("STARTING");
