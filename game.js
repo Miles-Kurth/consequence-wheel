@@ -75,7 +75,7 @@ function startGame() {
     let targetX = 10;
     let targetY = 10;
 
-    const wheel1 = new Section(10,0,1*pi,startingHue);
+    const wheel1 = new Section(10, 0, 1*pi, startingHue);
 
     updateGameArea();
     console.log("STARTING");
@@ -87,3 +87,12 @@ startGame();
 const startButton = document.createElement('button');
 startButton.textContent = "SPIN";
 document.body.appendChild(startButton);
+
+
+
+const canvas = document.getElementById("myCanvas");
+const ctx2 = canvas.getContext("2d");
+
+ctx2.beginPath();
+ctx2.arc(100, 75, 50, 0, 2 * Math.PI);
+ctx2.stroke();
