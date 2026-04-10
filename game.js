@@ -2,6 +2,10 @@ import Color from "https://colorjs.io/dist/color.js";
 
 
 const pi = Math.PI;
+const CENTERX = 250;
+const CENTERY = 250;
+const RADIUS = 75;
+
 
 var startingHue = Math.floor(Math.random() * 360) + 1;
 var ctx;
@@ -17,18 +21,20 @@ var gameArea = {
         this.canvas.width = 600;
         this.canvas.height = 500;
         this.context = this.canvas.getContext("2d");
+        ctx = this.context;
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
 
     },
     clear : function() {
-        this.context.clearRect(0, 0, this.canvas.width, this. canvas. height);
+        ctx.clearRect(0, 0, this.canvas.width, this. canvas. height);
     },
 
     drawCircle : function() {
-        this.context.beginPath();
-        this.context.arc(100, 75, 20, 0, 2 * Math.PI);
-        this.context.stroke();
+        ctx.beginPath();
+        ctx.arc(CENTERX, CENTERY, RADIUS, 0, 2 * Math.PI);
+        ctx.fillStyle()
+        ctx.stroke();
     }
 }
 
