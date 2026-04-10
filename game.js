@@ -14,6 +14,8 @@ var ctx;
 let globalHueChange = 0;
 let time = 0;
 
+let golbalZeroAngle = 0;
+
 let options = ["one","two","three","four","five","six"];
 
 
@@ -90,7 +92,8 @@ class Section {
 function updateGameArea() {
     gameArea.clear();
     gameArea.drawCircle();
-    updateGlobalHue();    
+    updateGlobalHue();
+    updateGlobalAngle();
 }
 
 function updateGlobalHue() {
@@ -98,12 +101,17 @@ function updateGlobalHue() {
     time = (time + 0.01) % 20;
 }
 
+function updateGlobalAngle() {
+    golbalZeroAngle += 0.01;
+    golbalZeroAngle = (golbalZeroAngle % (2*pi));
+}
+
 function startGame() {
     gameArea.start();
     let targetX = 10;
     let targetY = 10;
 
-    const wheel1 = new Section(10, 0, 1*pi, startingHue);
+    // const wheel1 = new Section(10, 0, 1*pi, startingHue);
 
     updateGameArea();
     console.log("STARTING");
