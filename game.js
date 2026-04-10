@@ -3,9 +3,12 @@ import Color from "https://colorjs.io/dist/color.js";
 
 const pi = Math.PI;
 
-const CENTERX = 250;
-const CENTERY = 250;
-const RADIUS = 120;
+const CANVASWIDTH = 400;
+const CANVASHEIGHT = 400;
+
+const CENTERX = CANVASWIDTH/2;
+const CENTERY = CANVASHEIGHT/2;
+const RADIUS = 180;
 
 
 var startingHue = Math.floor(Math.random() * 360) + 1;
@@ -20,11 +23,13 @@ let options = ["one","two","three","four","five","six"];
 
 
 
+
+
 var gameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 500;
-        this.canvas.height = 500;
+        this.canvas.width = CANVASWIDTH;
+        this.canvas.height = CANVASHEIGHT;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
