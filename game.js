@@ -39,8 +39,8 @@ let sections = [ //startAngle, endAngle, hue
 
 var startingHue = Math.floor(Math.random() * 360) + 1;
 
-const hueChangePerSection = 360 / NUMSECTIONS;
-const angleChangePerSection = (2*pi) / NUMSECTIONS * 2;
+const hueChangePerSection = 360 / NUMSECTIONS * 2;
+const angleChangePerSection = (2*pi) / NUMSECTIONS;
 
 let globalHueChange = 0;
 let time = 0;
