@@ -90,8 +90,8 @@ document.body.appendChild(startButton);
 
 
 
-const canvas = document.getElementById("myCanvas");
-const ctx2 = canvas.getContext("2d");
+// const canvas = document.getElementById("myCanvas");
+const ctx2 = gameArea.getContext("2d");
 
 ctx2.beginPath();
 ctx2.arc(100, 75, 50, 0, 2 * Math.PI);
