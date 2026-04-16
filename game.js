@@ -21,6 +21,7 @@ const options = ["Give everyone in the group money",
                  "Read book aloud",
                  "Do 10 push-ups",
                  "Wear your sweater backwards",
+                 "Sing a song of the group's choice (vote)",
                  "Show the group your browsing history"
 ];
 const NUMSECTIONS = options.length;
